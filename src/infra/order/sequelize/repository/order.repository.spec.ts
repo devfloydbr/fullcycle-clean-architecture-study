@@ -1,5 +1,5 @@
-import { v4 } from 'uuid'
 import { Sequelize } from 'sequelize-typescript'
+import { v4 } from 'uuid'
 
 import { ProductSequelizeModel } from '../../../product/sequelize/model/product.model'
 
@@ -10,12 +10,12 @@ import { Order } from '../../../../domain/checkout/order/entity/order.entity'
 import { Customer } from '../../../../domain/customer/entity/costumer.entity'
 import { Address } from '../../../../domain/customer/object-values/address/address.ov'
 
+import { ProductA } from '../../../../domain/product/entity/ProductA/product.entity'
+import { CustomerSequelizeModel } from '../../../customer/sequelize/model/costumer.model'
 import { CustomerRepository } from '../../../customer/sequelize/repository/customer.repository'
 import { ProductRepository } from '../../../product/sequelize/repository/product.repository'
-import { OrderSequelizeModel } from '../model/order.model'
-import { CustomerSequelizeModel } from '../../../customer/sequelize/model/costumer.model'
 import { OrderItemSequelizeModel } from '../model/order-item.model'
-import { ProductA } from '../../../../domain/product/entity/ProductA/product.entity'
+import { OrderSequelizeModel } from '../model/order.model'
 
 describe('Order repository unit test', () => {
   let sequelize: Sequelize

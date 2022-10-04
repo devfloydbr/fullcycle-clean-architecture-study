@@ -1,34 +1,27 @@
-import { v4 } from 'uuid'
-import { Customer } from '../../../domain/customer/entity/costumer.entity'
+import { CustomerFactory } from '../../../domain/customer/factory/customer.factory'
 import { Address } from '../../../domain/customer/object-values/address/address.ov'
+
+import {
+  IFindCustomerDtoInput,
+  IFindCustomerDtoOutput
+} from './dto/find-customer.dto'
 import { FindCustomerUseCase } from './find-customer.use-case'
 
-const customer = {
-  id: v4(),
-  name: 'Customer 1'
-}
-
-const createCustomer = new Customer(customer.id, customer.name)
-
-const customerAddress = {
+const address = {
   street: 'Street 1',
   number: 1,
   city: 'City',
-  zip: '00000-000'
+  zip: '10000-001'
 }
 
-const address = new Address(
-  customerAddress.street,
-  customerAddress.number,
-  customerAddress.city,
-  customerAddress.zip
+const customer = CustomerFactory.createWithAddress(
+  'Customer 1',
+  new Address(address.street, address.number, address.city, address.zip)
 )
-
-createCustomer.changeAddress(address)
 
 const MockRepository = () => {
   return {
-    find: jest.fn().mockReturnValue(Promise.resolve(createCustomer)),
+    find: jest.fn().mockReturnValue(Promise.resolve(customer)),
     findAll: jest.fn(),
     create: jest.fn(),
     update: jest.fn()
@@ -41,13 +34,13 @@ describe('Find customer use case unit test', () => {
 
     const useCase = new FindCustomerUseCase(customerRepository)
 
-    await customerRepository.create(createCustomer)
+    await customerRepository.create(customer)
 
-    const input = {
+    const input: IFindCustomerDtoInput = {
       id: customer.id
     }
 
-    const output = {
+    const output: IFindCustomerDtoOutput = {
       id: customer.id,
       name: customer.name,
       address: {
@@ -58,9 +51,9 @@ describe('Find customer use case unit test', () => {
       }
     }
 
-    const result = await useCase.execute(input)
+    const findCustomer = await useCase.execute(input)
 
-    expect(result).toEqual(output)
+    expect(findCustomer).toEqual(output)
   })
 
   it('should not find a customer by id', async () => {
@@ -72,7 +65,7 @@ describe('Find customer use case unit test', () => {
 
     const useCase = new FindCustomerUseCase(customerRepository)
 
-    const input = {
+    const input: IFindCustomerDtoInput = {
       id: customer.id
     }
 

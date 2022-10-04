@@ -1,3 +1,5 @@
+import { v4 } from 'uuid'
+
 import { CustomerFactory } from '../../../domain/customer/factory/customer.factory'
 import { Address } from '../../../domain/customer/object-values/address/address.ov'
 import { ICostumerRepository } from '../../../domain/customer/repository/customer-repository.interface'

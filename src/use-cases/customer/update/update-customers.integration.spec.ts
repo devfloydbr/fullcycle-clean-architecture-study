@@ -7,12 +7,12 @@ import { CustomerSequelizeModel } from '../../../infra/customer/sequelize/model/
 import { CustomerRepository } from '../../../infra/customer/sequelize/repository/customer.repository'
 
 import {
-  IFindCustomerDtoInput,
-  IFindCustomerDtoOutput
-} from './dto/find-customer.dto'
-import { FindCustomerUseCase } from './find-customer.use-case'
+  IUpdateCostumerDtoInput,
+  IUpdateCostumerDtoOutput
+} from './dto/update-costumer.dto'
+import { UpdateCustomerUseCase } from './update-customer.use-case'
 
-describe('Find customer use case integration test', () => {
+describe('List customers use case integration test', () => {
   let sequelize: Sequelize
 
   beforeEach(async () => {
@@ -32,30 +32,42 @@ describe('Find customer use case integration test', () => {
     await sequelize.close()
   })
 
-  it('should be able to find customer by id', async () => {
+  it('should be able to update a customer', async () => {
     const customerRepository = new CustomerRepository()
 
     const customer = CustomerFactory.createWithAddress(
       'Customer 1',
-      new Address('Street 1', 1, 'City', '10000-001')
+      new Address('Street 1', 1, 'City', '00000-000')
     )
 
     await customerRepository.create(customer)
 
-    const useCase = new FindCustomerUseCase(customerRepository)
+    const useCase = new UpdateCustomerUseCase(customerRepository)
 
-    const input: IFindCustomerDtoInput = {
-      id: customer.id
-    }
-
-    const findCustomer = await useCase.execute(input)
-
-    const output: IFindCustomerDtoOutput = {
+    const input: IUpdateCostumerDtoInput = {
       id: customer.id,
-      name: findCustomer.name,
-      address: findCustomer.address
+      name: 'Customer 1 - UPDATED',
+      address: {
+        street: 'Street 1 - UPDATED',
+        number: 2,
+        city: 'City - UPDATED',
+        zip: '00000-000 - UPDATED'
+      }
     }
 
-    expect(findCustomer).toEqual(output)
+    const updateCustomer = await useCase.execute(input)
+
+    const output: IUpdateCostumerDtoOutput = {
+      id: customer.id,
+      name: input.name,
+      address: {
+        street: input.address.street,
+        number: input.address.number,
+        city: input.address.city,
+        zip: input.address.zip
+      }
+    }
+
+    expect(updateCustomer).toEqual(output)
   })
 })

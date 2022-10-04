@@ -1,4 +1,8 @@
 import { CreateCustomerUseCase } from './create-customer.use-case'
+import {
+  ICreateCustomerDtoInput,
+  ICreateCustomerDtoOutput
+} from './dto/create-customer.dto'
 
 const MockRepository = () => {
   return {
@@ -11,7 +15,7 @@ const MockRepository = () => {
 
 describe('Create customer use case unit test', () => {
   it('should be able to create customer', async () => {
-    const input = {
+    const input: ICreateCustomerDtoInput = {
       name: 'Customer 1',
       address: {
         street: 'Street 1',
@@ -25,22 +29,19 @@ describe('Create customer use case unit test', () => {
 
     const useCase = new CreateCustomerUseCase(customerRepository)
 
-    const output = await useCase.execute(input)
+    const createCustomer = await useCase.execute(input)
 
-    expect(output).toEqual({
+    const output: ICreateCustomerDtoOutput = {
       id: expect.any(String),
       name: input.name,
-      address: {
-        street: input.address.street,
-        number: input.address.number,
-        city: input.address.city,
-        zip: input.address.zip
-      }
-    })
+      address: input.address
+    }
+
+    expect(createCustomer).toEqual(output)
   })
 
   it('should throw an error when name is missing', async () => {
-    const input = {
+    const input: ICreateCustomerDtoInput = {
       name: '',
       address: {
         street: 'Street 1',
@@ -58,7 +59,7 @@ describe('Create customer use case unit test', () => {
   })
 
   it('should throw an error when street is missing', async () => {
-    const input = {
+    const input: ICreateCustomerDtoInput = {
       name: 'Customer 1',
       address: {
         street: '',

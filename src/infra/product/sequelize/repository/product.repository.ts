@@ -1,5 +1,4 @@
 import { ProductA } from '../../../../domain/product/entity/ProductA/product.entity'
-import { ProductB } from '../../../../domain/product/entity/ProductB/product.entity'
 import { IProduct } from '../../../../domain/product/interfaces/product.interface'
 import { IProductRepository } from '../../../../domain/product/repository/product-repository.interface'
 import { ProductSequelizeModel } from '../model/product.model'

@@ -1,9 +1,9 @@
-import { v4 } from 'uuid'
 import { Sequelize } from 'sequelize-typescript'
+import { v4 } from 'uuid'
 
-import { ProductRepository } from './product.repository'
-import { ProductSequelizeModel } from '../model/product.model'
 import { ProductA } from '../../../../domain/product/entity/ProductA/product.entity'
+import { ProductSequelizeModel } from '../model/product.model'
+import { ProductRepository } from './product.repository'
 
 describe('Product repository unit test', () => {
   let sequelize: Sequelize
