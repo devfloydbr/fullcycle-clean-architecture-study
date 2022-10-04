@@ -1,7 +1,7 @@
 import { CustomerFactory } from '../../../domain/customer/factory/customer.factory'
 import { Address } from '../../../domain/customer/object-values/address/address.ov'
 
-import { IListCustomerDtoOutput } from './dto/list-customer.dto'
+import { IListCustomersDtoOutput } from './dto/list-customer.dto'
 import { ListCustomersUseCase } from './list-customers.use-case'
 
 describe('List customers use case unit test', () => {
@@ -33,7 +33,7 @@ describe('List customers use case unit test', () => {
 
     const findAllCustomers = await useCase.execute({})
 
-    const output: IListCustomerDtoOutput = {
+    const output: IListCustomersDtoOutput = {
       customers: [
         {
           id: customer1.id,

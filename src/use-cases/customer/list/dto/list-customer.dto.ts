@@ -11,6 +11,6 @@ type Customer = {
 
 export interface IListCustomersDtoInput {}
 
-export interface IListCustomerDtoOutput {
+export interface IListCustomersDtoOutput {
   customers: Customer[]
 }

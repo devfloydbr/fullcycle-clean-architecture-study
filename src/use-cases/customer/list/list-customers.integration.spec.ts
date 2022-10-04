@@ -3,10 +3,10 @@ import { Sequelize } from 'sequelize-typescript'
 import { CustomerFactory } from '../../../domain/customer/factory/customer.factory'
 import { Address } from '../../../domain/customer/object-values/address/address.ov'
 
-import { CustomerSequelizeModel } from '../../../infra/customer/sequelize/model/costumer.model'
-import { CustomerRepository } from '../../../infra/customer/sequelize/repository/customer.repository'
-import { IListCustomerDtoOutput } from './dto/list-customer.dto'
+import { CustomerSequelizeModel } from '../../../infra/core/customer/sequelize/model/costumer.model'
+import { CustomerRepository } from '../../../infra/core/customer/sequelize/repository/customer.repository'
 
+import { IListCustomersDtoOutput } from './dto/list-customer.dto'
 import { ListCustomersUseCase } from './list-customers.use-case'
 
 describe('List customers use case integration test', () => {
@@ -49,7 +49,7 @@ describe('List customers use case integration test', () => {
 
     const findAllCustomers = await listCustomerUseCase.execute({})
 
-    const output: IListCustomerDtoOutput = {
+    const output: IListCustomersDtoOutput = {
       customers: [
         {
           id: customer1.id,

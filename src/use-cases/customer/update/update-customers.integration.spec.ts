@@ -3,8 +3,8 @@ import { Sequelize } from 'sequelize-typescript'
 import { CustomerFactory } from '../../../domain/customer/factory/customer.factory'
 import { Address } from '../../../domain/customer/object-values/address/address.ov'
 
-import { CustomerSequelizeModel } from '../../../infra/customer/sequelize/model/costumer.model'
-import { CustomerRepository } from '../../../infra/customer/sequelize/repository/customer.repository'
+import { CustomerSequelizeModel } from '../../../infra/core/customer/sequelize/model/costumer.model'
+import { CustomerRepository } from '../../../infra/core/customer/sequelize/repository/customer.repository'
 
 import {
   IUpdateCostumerDtoInput,

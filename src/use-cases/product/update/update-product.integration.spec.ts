@@ -2,8 +2,8 @@ import { Sequelize } from 'sequelize-typescript'
 
 import { ProductFactory } from '../../../domain/product/factory/product.factory'
 
-import { ProductSequelizeModel } from '../../../infra/product/sequelize/model/product.model'
-import { ProductRepository } from '../../../infra/product/sequelize/repository/product.repository'
+import { ProductSequelizeModel } from '../../../infra/core/product/sequelize/model/product.model'
+import { ProductRepository } from '../../../infra/core/product/sequelize/repository/product.repository'
 
 import {
   IUpdateProductDtoInput,

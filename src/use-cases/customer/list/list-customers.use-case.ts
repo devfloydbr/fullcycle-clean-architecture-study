@@ -2,8 +2,8 @@ import { Customer } from '../../../domain/customer/entity/costumer.entity'
 import { ICostumerRepository } from '../../../domain/customer/repository/customer-repository.interface'
 
 import {
-  IListCustomerDtoOutput,
-  IListCustomersDtoInput
+  IListCustomersDtoInput,
+  IListCustomersDtoOutput
 } from './dto/list-customer.dto'
 
 export class ListCustomersUseCase {
@@ -15,7 +15,7 @@ export class ListCustomersUseCase {
 
   async execute(
     input: IListCustomersDtoInput
-  ): Promise<IListCustomerDtoOutput> {
+  ): Promise<IListCustomersDtoOutput> {
     const customers = await this.customerRepository.findAll()
 
     return OutPutMapper.toOutput(customers)
@@ -23,7 +23,7 @@ export class ListCustomersUseCase {
 }
 
 class OutPutMapper {
-  static toOutput(customers: Customer[]): IListCustomerDtoOutput {
+  static toOutput(customers: Customer[]): IListCustomersDtoOutput {
     return {
       customers: customers.map(customer => ({
         id: customer.id,

@@ -1,7 +1,7 @@
 import { Sequelize } from 'sequelize-typescript'
 
-import { ProductSequelizeModel } from '../../../infra/product/sequelize/model/product.model'
-import { ProductRepository } from '../../../infra/product/sequelize/repository/product.repository'
+import { ProductSequelizeModel } from '../../../infra/core/product/sequelize/model/product.model'
+import { ProductRepository } from '../../../infra/core/product/sequelize/repository/product.repository'
 
 import { CreateProductUseCase } from './create-product.use-case'
 import {
