@@ -6,12 +6,12 @@ import { ProductSequelizeModel } from '../../../infra/product/sequelize/model/pr
 import { ProductRepository } from '../../../infra/product/sequelize/repository/product.repository'
 
 import {
-  IFindProductDtoInput,
-  IFindProductDtoOutput
-} from './dto/find-product.dto'
-import { FindProductUseCase } from './find-product.use-case'
+  IUpdateProductDtoInput,
+  IUpdateProductDtoOutput
+} from './dto/update-product.dto'
+import { UpdateProductUseCase } from './update-product.use-case'
 
-describe('Find product use case integration test', () => {
+describe('Update product use case integration test', () => {
   let sequelize: Sequelize
 
   beforeEach(async () => {
@@ -31,27 +31,29 @@ describe('Find product use case integration test', () => {
     await sequelize.close()
   })
 
-  it('should be able to find product by id', async () => {
+  it('should be able to update a product', async () => {
     const productRepository = new ProductRepository()
-
-    const useCase = new FindProductUseCase(productRepository)
 
     const product = ProductFactory.create('A', 'Product 1', 5)
 
     await productRepository.create(product)
 
-    const input: IFindProductDtoInput = {
-      id: product.id
-    }
+    const useCase = new UpdateProductUseCase(productRepository)
 
-    const createProduct = await useCase.execute(input)
-
-    const output: IFindProductDtoOutput = {
+    const input: IUpdateProductDtoInput = {
       id: product.id,
-      name: product.name,
-      price: product.price
+      name: 'Product 1 - UPDATED',
+      price: 10
     }
 
-    expect(createProduct).toEqual(output)
+    const updateProduct = await useCase.execute(input)
+
+    const output: IUpdateProductDtoOutput = {
+      id: product.id,
+      name: input.name,
+      price: input.price
+    }
+
+    expect(updateProduct).toEqual(output)
   })
 })

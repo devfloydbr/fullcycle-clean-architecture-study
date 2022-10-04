@@ -1,11 +1,15 @@
 import { ProductFactory } from '../../../domain/product/factory/product.factory'
+import {
+  IFindProductDtoInput,
+  IFindProductDtoOutput
+} from './dto/find-product.dto'
 import { FindProductUseCase } from './find-product.use-case'
 
-const createproduct = ProductFactory.create('A', 'Product 1', 5)
+const product = ProductFactory.create('A', 'Product 1', 5)
 
 const MockRepository = () => {
   return {
-    find: jest.fn().mockReturnValue(Promise.resolve(createproduct)),
+    find: jest.fn().mockReturnValue(Promise.resolve(product)),
     findAll: jest.fn(),
     create: jest.fn(),
     update: jest.fn()
@@ -18,21 +22,21 @@ describe('Find product use case unit test', () => {
 
     const useCase = new FindProductUseCase(productRepository)
 
-    await productRepository.create(createproduct)
+    await productRepository.create(product)
 
-    const input = {
-      id: createproduct.id
+    const input: IFindProductDtoInput = {
+      id: product.id
     }
 
-    const output = {
-      id: createproduct.id,
-      name: createproduct.name,
-      price: createproduct.price
+    const findProduct = await useCase.execute(input)
+
+    const output: IFindProductDtoOutput = {
+      id: product.id,
+      name: product.name,
+      price: product.price
     }
 
-    const result = await useCase.execute(input)
-
-    expect(result).toEqual(output)
+    expect(findProduct).toEqual(output)
   })
 
   it('should not find a product by id', async () => {
@@ -44,8 +48,8 @@ describe('Find product use case unit test', () => {
 
     const useCase = new FindProductUseCase(productRepository)
 
-    const input = {
-      id: createproduct.id
+    const input: IFindProductDtoInput = {
+      id: product.id
     }
 
     expect(() => useCase.execute(input)).rejects.toThrow('Product not found.')

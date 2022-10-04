@@ -9,7 +9,7 @@ type Customer = {
   }
 }
 
-export interface IListCustomerDtoInput {}
+export interface IListCustomersDtoInput {}
 
 export interface IListCustomerDtoOutput {
   customers: Customer[]

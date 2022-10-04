@@ -1,8 +1,8 @@
 import { Customer } from '../../../domain/customer/entity/costumer.entity'
 import { ICostumerRepository } from '../../../domain/customer/repository/customer-repository.interface'
 import {
-  IListCustomerDtoInput,
-  IListCustomerDtoOutput
+  IListCustomerDtoOutput,
+  IListCustomersDtoInput
 } from './dto/list-customer.dto'
 
 export class ListCustomersUseCase {
@@ -12,7 +12,7 @@ export class ListCustomersUseCase {
     this.customerRepository = customerRepository
   }
 
-  async execute(input: IListCustomerDtoInput) {
+  async execute(input: IListCustomersDtoInput) {
     const customers = await this.customerRepository.findAll()
 
     return OutPutMapper.toOutput(customers)

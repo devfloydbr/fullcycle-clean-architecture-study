@@ -1,5 +1,6 @@
 import { ProductFactory } from '../../../domain/product/factory/product.factory'
 import { IProductRepository } from '../../../domain/product/repository/product-repository.interface'
+
 import { ICreateProductDtoInput } from './dto/create-product.dto'
 
 export class CreateProductUseCase {

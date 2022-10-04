@@ -1,5 +1,8 @@
 import { CreateProductUseCase } from './create-product.use-case'
-import { ICreateProductDtoInput } from './dto/create-product.dto'
+import {
+  ICreateProductDtoInput,
+  ICreateProductDtoOutput
+} from './dto/create-product.dto'
 
 const MockRepository = () => {
   return {
@@ -22,15 +25,15 @@ describe('Create product use case unit test', () => {
 
     const useCase = new CreateProductUseCase(productRepository)
 
-    await productRepository.create(input)
+    const createProduct = await useCase.execute(input)
 
-    const output = await useCase.execute(input)
-
-    expect(output).toEqual({
+    const output: ICreateProductDtoOutput = {
       id: expect.any(String),
       name: input.name,
       price: input.price
-    })
+    }
+
+    expect(createProduct).toEqual(output)
   })
 
   it('should throw an error when price is less than 0', async () => {

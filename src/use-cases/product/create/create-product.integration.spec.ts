@@ -1,17 +1,15 @@
 import { Sequelize } from 'sequelize-typescript'
 
-import { ProductFactory } from '../../../domain/product/factory/product.factory'
-
 import { ProductSequelizeModel } from '../../../infra/product/sequelize/model/product.model'
 import { ProductRepository } from '../../../infra/product/sequelize/repository/product.repository'
 
+import { CreateProductUseCase } from './create-product.use-case'
 import {
-  IFindProductDtoInput,
-  IFindProductDtoOutput
-} from './dto/find-product.dto'
-import { FindProductUseCase } from './find-product.use-case'
+  ICreateProductDtoInput,
+  ICreateProductDtoOutput
+} from './dto/create-product.dto'
 
-describe('Find product use case integration test', () => {
+describe('Create product use case integration test', () => {
   let sequelize: Sequelize
 
   beforeEach(async () => {
@@ -31,25 +29,23 @@ describe('Find product use case integration test', () => {
     await sequelize.close()
   })
 
-  it('should be able to find product by id', async () => {
+  it('should be able to create a customer', async () => {
     const productRepository = new ProductRepository()
 
-    const useCase = new FindProductUseCase(productRepository)
+    const useCase = new CreateProductUseCase(productRepository)
 
-    const product = ProductFactory.create('A', 'Product 1', 5)
-
-    await productRepository.create(product)
-
-    const input: IFindProductDtoInput = {
-      id: product.id
+    const input: ICreateProductDtoInput = {
+      type: 'A',
+      name: 'Product 1',
+      price: 5
     }
 
     const createProduct = await useCase.execute(input)
 
-    const output: IFindProductDtoOutput = {
-      id: product.id,
-      name: product.name,
-      price: product.price
+    const output: ICreateProductDtoOutput = {
+      id: expect.any(String),
+      name: input.name,
+      price: input.price
     }
 
     expect(createProduct).toEqual(output)
