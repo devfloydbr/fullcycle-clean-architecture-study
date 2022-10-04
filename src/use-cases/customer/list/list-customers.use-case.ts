@@ -1,5 +1,6 @@
 import { Customer } from '../../../domain/customer/entity/costumer.entity'
 import { ICostumerRepository } from '../../../domain/customer/repository/customer-repository.interface'
+
 import {
   IListCustomerDtoOutput,
   IListCustomersDtoInput
@@ -12,7 +13,9 @@ export class ListCustomersUseCase {
     this.customerRepository = customerRepository
   }
 
-  async execute(input: IListCustomersDtoInput) {
+  async execute(
+    input: IListCustomersDtoInput
+  ): Promise<IListCustomerDtoOutput> {
     const customers = await this.customerRepository.findAll()
 
     return OutPutMapper.toOutput(customers)

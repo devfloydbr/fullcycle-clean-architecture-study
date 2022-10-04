@@ -1,5 +1,6 @@
 import { IProduct } from '../../../domain/product/interfaces/product.interface'
 import { IProductRepository } from '../../../domain/product/repository/product-repository.interface'
+
 import {
   IListProductsDtoInput,
   IListProductsDtoOutput
@@ -12,7 +13,7 @@ export class ListProductsUseCase {
     this.productRepository = productRepository
   }
 
-  async execute(_: IListProductsDtoInput) {
+  async execute(_: IListProductsDtoInput): Promise<IListProductsDtoOutput> {
     const products = await this.productRepository.findAll()
 
     return OutPutMapper.toOutput(products)

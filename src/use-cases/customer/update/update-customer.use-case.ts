@@ -1,7 +1,10 @@
-import { CustomerFactory } from '../../../domain/customer/factory/customer.factory'
 import { Address } from '../../../domain/customer/object-values/address/address.ov'
 import { ICostumerRepository } from '../../../domain/customer/repository/customer-repository.interface'
-import { IUpdateCostumerDtoInput } from './dto/update-costumer.dto'
+
+import {
+  IUpdateCostumerDtoInput,
+  IUpdateCostumerDtoOutput
+} from './dto/update-costumer.dto'
 
 export class UpdateCustomerUseCase {
   private customerRepository: ICostumerRepository
@@ -10,7 +13,9 @@ export class UpdateCustomerUseCase {
     this.customerRepository = customerRepository
   }
 
-  async execute(input: IUpdateCostumerDtoInput) {
+  async execute(
+    input: IUpdateCostumerDtoInput
+  ): Promise<IUpdateCostumerDtoOutput> {
     const customer = await this.customerRepository.find(input.id)
 
     customer.changeName(input.name)

@@ -1,9 +1,11 @@
-import { v4 } from 'uuid'
-
 import { CustomerFactory } from '../../../domain/customer/factory/customer.factory'
 import { Address } from '../../../domain/customer/object-values/address/address.ov'
 import { ICostumerRepository } from '../../../domain/customer/repository/customer-repository.interface'
-import { ICreateCustomerDtoInput } from './dto/create-customer.dto'
+
+import {
+  ICreateCustomerDtoInput,
+  ICreateCustomerDtoOutput
+} from './dto/create-customer.dto'
 
 export class CreateCustomerUseCase {
   private customerRepository: ICostumerRepository
@@ -12,7 +14,9 @@ export class CreateCustomerUseCase {
     this.customerRepository = customerRepository
   }
 
-  async execute(input: ICreateCustomerDtoInput) {
+  async execute(
+    input: ICreateCustomerDtoInput
+  ): Promise<ICreateCustomerDtoOutput> {
     const customer = CustomerFactory.createWithAddress(
       input.name,
       new Address(

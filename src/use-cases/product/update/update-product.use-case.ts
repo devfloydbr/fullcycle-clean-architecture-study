@@ -1,5 +1,9 @@
 import { IProductRepository } from '../../../domain/product/repository/product-repository.interface'
-import { IUpdateProductDtoInput } from './dto/update-product.dto'
+
+import {
+  IUpdateProductDtoInput,
+  IUpdateProductDtoOutput
+} from './dto/update-product.dto'
 
 export class UpdateProductUseCase {
   private productRepository: IProductRepository
@@ -8,7 +12,9 @@ export class UpdateProductUseCase {
     this.productRepository = productRepository
   }
 
-  async execute(input: IUpdateProductDtoInput) {
+  async execute(
+    input: IUpdateProductDtoInput
+  ): Promise<IUpdateProductDtoOutput> {
     const product = await this.productRepository.find(input.id)
 
     product.changeName(input.name)
