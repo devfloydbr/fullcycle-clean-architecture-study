@@ -11,7 +11,9 @@ describe('Notifications unit test', () => {
 
     notification.addError(error1)
 
-    expect(notification.messages('customer')).toBe('customer: error message')
+    expect(notification.messages('customer')).toBe(
+      `${error1.context}: ${error1.message}`
+    )
 
     const error2 = {
       message: 'error message2',
@@ -21,7 +23,18 @@ describe('Notifications unit test', () => {
     notification.addError(error2)
 
     expect(notification.messages('customer')).toBe(
-      'customer: error message,customer: error message2'
+      `${error1.context}: ${error1.message},${error2.context}: ${error2.message}`
+    )
+
+    const error3 = {
+      message: 'error message3',
+      context: 'order'
+    }
+
+    notification.addError(error3)
+
+    expect(notification.messages()).toBe(
+      `${error1.context}: ${error1.message},${error2.context}: ${error2.message},${error3.context}: ${error3.message}`
     )
   })
 })

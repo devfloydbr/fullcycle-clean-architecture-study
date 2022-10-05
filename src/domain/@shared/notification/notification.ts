@@ -10,9 +10,9 @@ export class Notification {
     this.errors.push(error)
   }
 
-  messages(context: string): string {
+  messages(context?: string): string {
     return this.errors
-      .filter(err => err.context === context)
+      .filter(err => (context ? err.context === context : err))
       .map(err => `${err.context}: ${err.message}`)
       .join(',')
   }

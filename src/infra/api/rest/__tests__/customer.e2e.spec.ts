@@ -75,11 +75,12 @@ describe('Customer E2E test', () => {
       .post('/customers')
       .send(customer1)
 
+    expect(createCustomer1Response.status).toBe(200)
+
     const createCustomer2Response = await request(app)
       .post('/customers')
       .send(customer2)
 
-    expect(createCustomer1Response.status).toBe(200)
     expect(createCustomer2Response.status).toBe(200)
 
     const listCustomersResponse = await request(app).get('/customers').send()
