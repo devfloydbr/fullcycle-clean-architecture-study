@@ -17,7 +17,7 @@ export let sequelize: Sequelize
 async function setupSequelize() {
   sequelize = new Sequelize({
     dialect: 'sqlite',
-    storage: './db.sqlite',
+    storage: ':memory:',
     logging: false
   })
 
