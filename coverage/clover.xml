@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1664979557561" clover="3.2.0">
-  <project timestamp="1664979557561" name="All files">
+<coverage generated="1664980210573" clover="3.2.0">
+  <project timestamp="1664980210574" name="All files">
     <metrics statements="1334" coveredstatements="1308" conditionals="211" coveredconditionals="200" methods="135" coveredmethods="133" elements="1680" coveredelements="1641" complexity="0" loc="1334" ncloc="1334" packages="33" files="36" classes="36"/>
     <package name="domain.@shared.events">
       <metrics statements="47" coveredstatements="45" conditionals="9" coveredconditionals="8" methods="6" coveredmethods="6"/>
@@ -316,12 +316,12 @@
         <line num="53" count="9" type="stmt"/>
         <line num="54" count="1" type="stmt"/>
         <line num="55" count="1" type="cond" truecount="1" falsecount="0"/>
-        <line num="56" count="43" type="stmt"/>
-        <line num="57" count="43" type="stmt"/>
+        <line num="56" count="44" type="stmt"/>
+        <line num="57" count="44" type="stmt"/>
         <line num="58" count="1" type="stmt"/>
         <line num="59" count="1" type="cond" truecount="1" falsecount="0"/>
-        <line num="60" count="61" type="stmt"/>
-        <line num="61" count="61" type="stmt"/>
+        <line num="60" count="62" type="stmt"/>
+        <line num="61" count="62" type="stmt"/>
         <line num="62" count="1" type="stmt"/>
         <line num="63" count="1" type="cond" truecount="1" falsecount="0"/>
         <line num="64" count="3" type="stmt"/>
@@ -332,8 +332,8 @@
         <line num="69" count="26" type="stmt"/>
         <line num="70" count="1" type="stmt"/>
         <line num="71" count="1" type="cond" truecount="1" falsecount="0"/>
-        <line num="72" count="150" type="stmt"/>
-        <line num="73" count="150" type="stmt"/>
+        <line num="72" count="154" type="stmt"/>
+        <line num="73" count="154" type="stmt"/>
         <line num="74" count="1" type="stmt"/>
         <line num="75" count="1" type="cond" truecount="1" falsecount="0"/>
         <line num="76" count="6" type="stmt"/>
@@ -439,20 +439,20 @@
         <line num="29" count="38" type="stmt"/>
         <line num="30" count="1" type="stmt"/>
         <line num="31" count="1" type="cond" truecount="1" falsecount="0"/>
-        <line num="32" count="40" type="stmt"/>
-        <line num="33" count="40" type="stmt"/>
+        <line num="32" count="41" type="stmt"/>
+        <line num="33" count="41" type="stmt"/>
         <line num="34" count="1" type="stmt"/>
         <line num="35" count="1" type="cond" truecount="1" falsecount="0"/>
-        <line num="36" count="40" type="stmt"/>
-        <line num="37" count="40" type="stmt"/>
+        <line num="36" count="41" type="stmt"/>
+        <line num="37" count="41" type="stmt"/>
         <line num="38" count="1" type="stmt"/>
         <line num="39" count="1" type="cond" truecount="1" falsecount="0"/>
-        <line num="40" count="40" type="stmt"/>
-        <line num="41" count="40" type="stmt"/>
+        <line num="40" count="41" type="stmt"/>
+        <line num="41" count="41" type="stmt"/>
         <line num="42" count="1" type="stmt"/>
         <line num="43" count="1" type="cond" truecount="1" falsecount="0"/>
-        <line num="44" count="40" type="stmt"/>
-        <line num="45" count="40" type="stmt"/>
+        <line num="44" count="41" type="stmt"/>
+        <line num="45" count="41" type="stmt"/>
         <line num="46" count="1" type="stmt"/>
         <line num="47" count="1" type="cond" truecount="1" falsecount="0"/>
         <line num="48" count="1" type="stmt"/>
@@ -680,9 +680,9 @@
       </file>
     </package>
     <package name="infra.api.rest.routes">
-      <metrics statements="83" coveredstatements="79" conditionals="11" coveredconditionals="9" methods="2" coveredmethods="2"/>
+      <metrics statements="83" coveredstatements="79" conditionals="12" coveredconditionals="10" methods="2" coveredmethods="2"/>
       <file name="customers.route.ts" path="/home/floyd-montreal/projects/fullcycle-clean-architecture-study/src/infra/api/rest/routes/customers.route.ts">
-        <metrics statements="44" coveredstatements="42" conditionals="5" coveredconditionals="4" methods="1" coveredmethods="1"/>
+        <metrics statements="44" coveredstatements="42" conditionals="6" coveredconditionals="5" methods="1" coveredmethods="1"/>
         <line num="1" count="1" type="stmt"/>
         <line num="2" count="1" type="stmt"/>
         <line num="3" count="1" type="stmt"/>
@@ -708,12 +708,12 @@
         <line num="23" count="4" type="stmt"/>
         <line num="24" count="4" type="stmt"/>
         <line num="25" count="4" type="stmt"/>
-        <line num="26" count="2" type="cond" truecount="1" falsecount="0"/>
-        <line num="27" count="2" type="stmt"/>
-        <line num="28" count="2" type="stmt"/>
-        <line num="29" count="2" type="stmt"/>
-        <line num="30" count="2" type="stmt"/>
-        <line num="31" count="2" type="stmt"/>
+        <line num="26" count="3" type="cond" truecount="1" falsecount="0"/>
+        <line num="27" count="3" type="stmt"/>
+        <line num="28" count="4" type="cond" truecount="1" falsecount="0"/>
+        <line num="29" count="1" type="stmt"/>
+        <line num="30" count="1" type="stmt"/>
+        <line num="31" count="1" type="stmt"/>
         <line num="32" count="4" type="stmt"/>
         <line num="33" count="1" type="stmt"/>
         <line num="34" count="1" type="cond" truecount="1" falsecount="0"/>
@@ -824,9 +824,9 @@
       </file>
     </package>
     <package name="infra.core.customer.sequelize.repository">
-      <metrics statements="94" coveredstatements="92" conditionals="10" coveredconditionals="9" methods="5" coveredmethods="5"/>
+      <metrics statements="94" coveredstatements="92" conditionals="9" coveredconditionals="8" methods="5" coveredmethods="5"/>
       <file name="customer.repository.ts" path="/home/floyd-montreal/projects/fullcycle-clean-architecture-study/src/infra/core/customer/sequelize/repository/customer.repository.ts">
-        <metrics statements="94" coveredstatements="92" conditionals="10" coveredconditionals="9" methods="5" coveredmethods="5"/>
+        <metrics statements="94" coveredstatements="92" conditionals="9" coveredconditionals="8" methods="5" coveredmethods="5"/>
         <line num="1" count="1" type="stmt"/>
         <line num="2" count="1" type="stmt"/>
         <line num="3" count="1" type="stmt"/>
@@ -845,7 +845,7 @@
         <line num="16" count="17" type="stmt"/>
         <line num="17" count="17" type="stmt"/>
         <line num="18" count="17" type="stmt"/>
-        <line num="19" count="16" type="cond" truecount="1" falsecount="0"/>
+        <line num="19" count="17" type="stmt"/>
         <line num="20" count="1" type="stmt"/>
         <line num="21" count="1" type="cond" truecount="1" falsecount="0"/>
         <line num="22" count="2" type="stmt"/>
@@ -1255,18 +1255,18 @@
         <line num="28" count="7" type="stmt"/>
         <line num="29" count="7" type="stmt"/>
         <line num="30" count="7" type="stmt"/>
-        <line num="31" count="4" type="cond" truecount="1" falsecount="0"/>
-        <line num="32" count="4" type="stmt"/>
-        <line num="33" count="4" type="stmt"/>
-        <line num="34" count="4" type="stmt"/>
-        <line num="35" count="4" type="stmt"/>
-        <line num="36" count="4" type="stmt"/>
-        <line num="37" count="4" type="stmt"/>
-        <line num="38" count="4" type="stmt"/>
-        <line num="39" count="4" type="stmt"/>
-        <line num="40" count="4" type="stmt"/>
-        <line num="41" count="4" type="stmt"/>
-        <line num="42" count="4" type="stmt"/>
+        <line num="31" count="5" type="cond" truecount="1" falsecount="0"/>
+        <line num="32" count="5" type="stmt"/>
+        <line num="33" count="5" type="stmt"/>
+        <line num="34" count="5" type="stmt"/>
+        <line num="35" count="5" type="stmt"/>
+        <line num="36" count="5" type="stmt"/>
+        <line num="37" count="5" type="stmt"/>
+        <line num="38" count="5" type="stmt"/>
+        <line num="39" count="5" type="stmt"/>
+        <line num="40" count="5" type="stmt"/>
+        <line num="41" count="5" type="stmt"/>
+        <line num="42" count="5" type="stmt"/>
         <line num="43" count="1" type="stmt"/>
       </file>
     </package>
