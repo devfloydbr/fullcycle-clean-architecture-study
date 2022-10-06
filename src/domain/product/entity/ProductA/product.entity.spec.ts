@@ -4,19 +4,27 @@ describe('Order unit tests', () => {
   it('should throw error when id is empty', () => {
     expect(() => {
       new ProductA('', 'Product 1', 5)
-    }).toThrowError('ID is required.')
+    }).toThrowError('product: ID is required.')
   })
 
   it('should throw error when name is empty', () => {
     expect(() => {
       new ProductA('1', '', 5)
-    }).toThrowError('Name is required.')
+    }).toThrowError('product: Name is required.')
   })
 
   it('should throw error when price is less than zero', () => {
     expect(() => {
       new ProductA('1', 'Product 1', -1)
-    }).toThrowError('Price must be greater than zero.')
+    }).toThrowError('product: Price must be greater than zero.')
+  })
+
+  it('should throw error when id and name is empty and price is less than zero', () => {
+    expect(() => {
+      new ProductA('', '', -1)
+    }).toThrowError(
+      'product: ID is required.,product: Name is required.,product: Price must be greater than zero.'
+    )
   })
 
   it('should change name', () => {

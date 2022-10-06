@@ -1,3 +1,5 @@
+import { Entity } from '../../@shared/entity/entity.abstract'
+
 export interface IProduct {
   get id(): string
   get name(): string
