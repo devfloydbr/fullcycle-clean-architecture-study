@@ -1,6 +1,6 @@
 import { Entity } from '../../@shared/entity/entity.abstract'
 
-export interface IProduct {
+export interface IProduct extends Entity {
   get id(): string
   get name(): string
   get price(): number
